@@ -8,11 +8,12 @@ import styles from '../styles.module.css'
 import Gamosa from './Gamosa/Gamosa'
 import Landing from './landing/Landing'
 import Location from './Location/Map'
+import NFT from './NFT/NFT'
 
 function Viewpager() {
   const index = useRef(0)
   const [ref, { width }] = useMeasure()
-  const Pages = [<Landing />, <Gamosa />, <Location />, <Gamosa />]
+  const Pages = [<Landing />, <Gamosa />, <Location />, <NFT />]
   const [props, api] = useSprings(
     4,
     i => ({

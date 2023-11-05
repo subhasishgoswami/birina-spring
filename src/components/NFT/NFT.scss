@@ -1,0 +1,57 @@
+
+$color-main: #fb0206;
+$black: #272727;
+
+.nft-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Horizontally center the content */
+  align-items: center; /* Vertically center the content if needed */
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  position: relative;
+  background-image: url("../../../public/nft.png"), url("../../../public/nft-send.png");
+  background-repeat: no-repeat;
+  background-position-y: 0%, 50%;
+  background-size: contain;
+
+}
+
+.nft {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  color: $black;
+  display: inline-block;
+  position: relative;
+  font-family: Sans-serif;
+  margin-bottom: 5px;
+}
+
+.nft-box{
+  width: 50%;
+  margin: 10px;
+}
+
+
+.nft-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  background-color: $color-main; /* Button background color */
+  color: #ffffff; /* Button text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+  margin-top: 20px;
+}
+
+.nft-button:hover {
+  background-color: #8e0103; /* Button background color on hover */
+}
