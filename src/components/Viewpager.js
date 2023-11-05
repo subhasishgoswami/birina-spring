@@ -12,7 +12,7 @@ import Location from './Location/Map'
 function Viewpager() {
   const index = useRef(0)
   const [ref, { width }] = useMeasure()
-  const Pages = [<Landing />, <Gamosa />, <Location />, <Gamosa />]
+  const Pages = [<Landing />, <Gamosa />, <Location />]
   const [props, api] = useSprings(
     3,
     i => ({

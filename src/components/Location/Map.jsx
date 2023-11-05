@@ -41,7 +41,7 @@ MapComponent.propTypes = {
   
     return (
 
-      <div className={`has-animation-map animation-rtl ${animate ? 'animate-in' : ''}`} data-delay="10">
+      <div>
         <MapComponent latitude="26.5239" longitude="93.9623" />
       </div>
     );
