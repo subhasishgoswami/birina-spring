@@ -9,10 +9,11 @@ const Landing = () => {
   }, []);
 
   return (
-    
-  <div className="text-container-gamosa">
-  <img src= "./gamosa-phoolam.png" className="gamosa-phoolam" />
-  </div>
+
+    <div className='gamosa-container'>
+    <p className="gamosa-h1">Your Gamosa Came From</p>
+    <p className="gamosa-h2">Merapani, Golaghat</p>
+    </div>
   );
 };
 

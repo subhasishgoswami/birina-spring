@@ -2,23 +2,42 @@
 $color-main: #fb0206;
 $black: #272727;
 
-.gamosa-phoolam {
-  width: 100vw; /* Set the desired width for your logo */
-  display: flex;
-  align-items: center; /* Align items vertically in the center */
-  height: auto; /* Maintain aspect ratio */
-  will-change: filter;
-  transition: filter 300ms;
-}
-
-.text-container-gamosa {
+.gamosa-container{
   display: flex;
   flex-direction: column;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; /* Horizontally center the content */
+  align-items: center; /* Vertically center the content if needed */
   width: 100vw;
   height: 100vh;
+  text-align: center;
+  position: relative;
+  background-image: url("../../../public/phoolam-gamosa-1.png"), url("../../../public/kopou-asli.png");
+  background-repeat: no-repeat;
+  background-position-y: 0%, 50%;
+  background-size: contain;
+
+}
+
+.gamosa-h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  color: $black;
+  display: inline-block;
+  position: relative;
+  font-family: Sans-serif;
+}
+.gamosa-h2{
+    margin: 0;
+    font-size: 30px;
+    font-weight: 570;
+  
+    text-align: center;
+    color: $black;
+    display: inline-block;
+    position: relative;
+    margin-bottom: 20px;
+    font-family: Sans-serif;    
+    color: #fb0206;
 }
