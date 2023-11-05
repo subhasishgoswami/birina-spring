@@ -23,7 +23,7 @@ function Viewpager() {
     [width]
   )
   const bind = useDrag(({ active, movement: [mx], direction: [xDir], distance, cancel }) => {
-    if (active && distance > width / 3) {
+    if (active && distance > width / 2.5) {
       index.current = clamp(index.current + (xDir > 0 ? -1 : 1), 0, Pages.length - 1)
       cancel()
     }
