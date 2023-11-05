@@ -12,6 +12,11 @@ $black: #272727;
     height: 100vh;
     text-align: center;
     position: relative;
+    background-image: url("../../../public/sky.png");
+    background-repeat: no-repeat;
+    background-position-y: 0%;
+    background-size: contain;
+
 }
 
 .mapLocation {
