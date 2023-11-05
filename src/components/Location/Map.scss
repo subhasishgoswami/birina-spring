@@ -12,6 +12,10 @@ $black: #272727;
     height: 100vh;
     text-align: center;
     position: relative;
+    background-image: url("../../../public/map.png");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
 }
 
 .mapLocation {
