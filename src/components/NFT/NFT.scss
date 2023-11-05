@@ -13,7 +13,7 @@ $black: #272727;
   position: relative;
   background-image: url("../../../public/nft.png"), url("../../../public/nft-send.png");
   background-repeat: no-repeat;
-  background-position-y: 0%, 40%;
+  background-position-y: 0%, 35%;
   background-size: contain;
 
 }
@@ -21,7 +21,7 @@ $black: #272727;
 .nft {
   margin: 0;
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 900;
   text-align: center;
   color: $black;
   display: inline-block;
