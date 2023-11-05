@@ -25,7 +25,7 @@ const MapComponent = ({ latitude, longitude }) => {
     <MapContainer
         center={[26.514326750000002, 93.96587135]} // Coordinates for Golaghat, Assam
         zoom={13}
-        style={{ width: '50%', height: '200px', borderRadius: '15px', marginTop: '10px' }}
+        style={{ width: '70%', height: '250px', borderRadius: '15px', marginTop: '10px' }}
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
