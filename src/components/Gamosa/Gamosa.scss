@@ -13,7 +13,7 @@ $black: #272727;
   position: relative;
   background-image: url("../../../public/phoolam-gamosa-1.png"), url("../../../public/kopou-asli.png");
   background-repeat: no-repeat;
-  background-position-y: 0%, 50%;
+  background-position-y: 0%, 40%;
   background-size: contain;
 
 }
@@ -21,12 +21,13 @@ $black: #272727;
 .gamosa-h1 {
   margin: 0;
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 1000;
   text-align: center;
   color: $black;
   display: inline-block;
   position: relative;
   font-family: Sans-serif;
+  margin-bottom: 20px;
 }
 .gamosa-h2{
     margin: 0;
@@ -37,7 +38,19 @@ $black: #272727;
     color: $black;
     display: inline-block;
     position: relative;
-    margin-bottom: 20px;
+    
     font-family: Sans-serif;    
     color: #fb0206;
+}
+.gamosa-h3{
+  margin: 0;
+  font-size: 30px;
+  font-weight: 1000;
+
+  text-align: center;
+  color: $black;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 20px;
+  font-family: Sans-serif;    
 }

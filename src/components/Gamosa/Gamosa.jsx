@@ -11,8 +11,10 @@ const Landing = () => {
   return (
 
     <div className='gamosa-container'>
-    <p className="gamosa-h1">Your Gamosa Came From</p>
-    <p className="gamosa-h2">Merapani, Golaghat</p>
+    <p className="gamosa-h1">In Your Hands You Have</p>
+    <p className="gamosa-h2">PHOOLAM GAMOSA</p>
+    <p className="gamosa-h3">ফুলাম গামোচা</p>
+    
     </div>
   );
 };
