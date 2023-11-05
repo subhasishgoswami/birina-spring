@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Iframe from 'react-iframe';
 import './Map.scss'; // Import the CSS file
+import { MapContainer, TileLayer, Marker } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+
 
 const MapComponent = ({ latitude, longitude }) => {
 
@@ -11,17 +14,17 @@ const MapComponent = ({ latitude, longitude }) => {
     <div className='location'>
     <p className="mapLocation">Your Gamosa Came From</p>
     <p className="mapLocationNFT">Merapani, Golaghat</p>
-    <Iframe
-      url="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28561.44200473965!2d93.96587135!3d26.514326750000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37468e60f884e663%3A0xcf43f3969cfd3486!2sGolaghat%2C%20Assam!5e0!3m2!1sen!2sin!4v1699108012946!5m2!1sen!2sin"
-      width="70%"
-      height="300px"
-      id=""
-      styles={{ border: 0, borderRadius: '15px', marginTop: '10px' }}
-      className=""
-      display="block"
-      referrerPolicy="no-referrer-when-downgrade"
-      loading="lazy"
-    />
+    <MapContainer
+        center={[26.514326750000002, 93.96587135]} // Coordinates for Golaghat, Assam
+        zoom={13}
+        style={{ width: '70%', height: '300px', borderRadius: '15px', marginTop: '10px' }}
+      >
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        />
+        <Marker position={[26.514326750000002, 93.96587135]} />
+      </MapContainer>
   </div>
   )
 };
