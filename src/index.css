@@ -1,0 +1,18 @@
+html,
+body,
+#root {
+  height: 100%;
+  width: 100vw;
+  overflow: hidden;
+  background-color: #ededed;
+}
+
+body {
+  margin: 0;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}

@@ -1,0 +1,24 @@
+
+$color-main: #fb0206;
+$black: #272727;
+
+.gamosa-phoolam {
+  width: 100vw; /* Set the desired width for your logo */
+  display: flex;
+  align-items: center; /* Align items vertically in the center */
+  height: auto; /* Maintain aspect ratio */
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.text-container-gamosa {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
