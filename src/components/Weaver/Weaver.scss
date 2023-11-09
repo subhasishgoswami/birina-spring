@@ -2,7 +2,7 @@
 $color-main: #fb0206;
 $black: #272727;
 
-.nft-container{
+.weaver-container{
   display: flex;
   flex-direction: column;
   justify-content: center; /* Horizontally center the content */
@@ -11,18 +11,19 @@ $black: #272727;
   height: 100vh;
   text-align: center;
   position: relative;
-  background-image: url("../../../public/phoolam-gamosa-1.png"), url("../../../public/nft-send.png");
+  background-image: url("../../../public/phoolam-gamosa-1.png");
   background-repeat: no-repeat;
   background-position-y: 0%, 42%;
   background-size: contain;
 
 }
 
-.nft {
-  margin: 0;
+.weaver {
+  margin-top: -5px;
+  margin-left: 200px;
   font-size: 20px;
   font-weight: 900;
-  text-align: center;
+  text-align: right;
   color: $black;
   display: inline-block;
   position: relative;
@@ -30,16 +31,31 @@ $black: #272727;
   margin-bottom: 5px;
 }
 
-.nft-box{
-  width: 50%;
+.weaver-send {
+  margin-top: -50px;
+  margin-left: 200px;
+  font-size: 20px;
+  font-weight: 900;
+  text-align: right;
+  color: $black;
+  display: inline-block;
+  position: relative;
+  font-family: Sans-serif;
+  margin-bottom: 5px;
+  color: #fb0206;
+}
+
+.weaver-box{
+  width: 100%;
   margin: 10px;
 }
 
 
-.nft-button {
+.weaver-button {
   display: inline-block;
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 12px;
+  margin-left: 200px; // ToDo- change this to center
   font-weight: bold;
   text-align: center;
   text-decoration: none;
@@ -49,9 +65,9 @@ $black: #272727;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease; /* Smooth transition for background color */
-  margin-top: 20px;
+  margin-top: 5px;
 }
 
-.nft-button:hover {
+.weaver-button:hover {
   background-color: #8e0103; /* Button background color on hover */
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './NFT.scss';
 
-const Landing = () => {
+const NFT = () => {
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
@@ -20,4 +20,4 @@ const Landing = () => {
   );
 };
 
-export default Landing;
+export default NFT;
