@@ -10,11 +10,12 @@ import Landing from './landing/Landing'
 import Location from './Location/Map'
 import NFT from './NFT/NFT'
 import Weaver from './Weaver/Weaver'
+import GamosaNFT from './GamosaNFT/GamosaNFT'
 
 function Viewpager() {
   const index = useRef(0)
   const [ref, { width }] = useMeasure()
-  const Pages = [<Landing />, <Gamosa />, <Location />, <Weaver />, <NFT />]
+  const Pages = [<GamosaNFT />, <Landing />, <Gamosa />, <Location />, <Weaver />, <NFT />, <GamosaNFT />]
   const [props, api] = useSprings(
     Pages.length,
     i => ({
