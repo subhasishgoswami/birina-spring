@@ -15,7 +15,7 @@ import GamosaNFT from './GamosaNFT/GamosaNFT'
 function Viewpager() {
   const index = useRef(0)
   const [ref, { width }] = useMeasure()
-  const Pages = [<GamosaNFT />, <Landing />, <Gamosa />, <Location />, <Weaver />, <NFT />, <GamosaNFT />]
+  const Pages = [<Landing />, <Gamosa />, <Location />, <Weaver />, <NFT />, <GamosaNFT />]
   const [props, api] = useSprings(
     Pages.length,
     i => ({
