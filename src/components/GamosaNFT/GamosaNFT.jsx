@@ -67,8 +67,6 @@ export default function App() {
           </div>
 
           </div>
-
-          
       ) : (
         <p className="gamosaNFT">Connect To Perra Wallet</p>
       )}
@@ -105,11 +103,11 @@ export default function App() {
 
     console.log("mint")
     const OptInTransaction = await generateOptIntoAssetTxns({
-      assetID: 432488752,
+      assetID: 432487034,
       initiatorAddr: accountAddress
     });
     try {
-      const assetIndex = 432488752
+      const assetIndex = 432487034
       const accountPrivateKey = algosdk.mnemonicToSecretKey("roof cage sniff park time proof pink thank upon sunset garment question walnut segment oxygen winner exile tilt quality grow seven pupil deny absorb pass");
 
 
