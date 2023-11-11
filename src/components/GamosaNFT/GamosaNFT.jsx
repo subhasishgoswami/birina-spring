@@ -105,11 +105,11 @@ export default function App() {
 
     console.log("mint")
     const OptInTransaction = await generateOptIntoAssetTxns({
-      assetID: 432618014,
+      assetID: 432488752,
       initiatorAddr: accountAddress
     });
     try {
-      const assetIndex = 432618014
+      const assetIndex = 432488752
       const accountPrivateKey = algosdk.mnemonicToSecretKey("roof cage sniff park time proof pink thank upon sunset garment question walnut segment oxygen winner exile tilt quality grow seven pupil deny absorb pass");
 
 
