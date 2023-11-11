@@ -10,6 +10,7 @@ const peraWallet = new PeraWalletConnect();
 export default function App() {
   const [accountAddress, setAccountAddress] = useState(null);
   const [tokenMinted, setTokenMinted] = useState(null);
+  const [tokenMinting, setTokenMinting] = useState(null);
   const isConnectedToPeraWallet = !!accountAddress;
 
   const algod = new algosdk.Algodv2("https://testnet-api.algonode.cloud", "https://testnet-api.algonode.cloud", "");
@@ -48,14 +49,23 @@ export default function App() {
           <div>
           <p className="gamosaNFT"> Welcome {accountAddress}</p>
           </div>
-
+          <div>
           <div>
           {tokenMinted ? (
-            <p className="gamosaNFT">Token Minted</p>
+            <p className="gamosaNFT">Token Minted {tokenMinted}</p>
+          ) : (
+            <div>
+            {tokenMinting ? (
+            <img className="nft-box" src="./gamosagif.gif" />
           ) : (
             <button className="gamosanft-button" onClick={handleMintNFT}>Mint NFT</button>
           )}
           </div>
+            
+          )}
+          </div>
+          </div>
+
           </div>
 
           
@@ -95,15 +105,17 @@ export default function App() {
 
     console.log("mint")
     const OptInTransaction = await generateOptIntoAssetTxns({
-      assetID: 432618490,
+      assetID: 432618014,
       initiatorAddr: accountAddress
     });
     try {
-      const assetIndex = 432618490
+      const assetIndex = 432618014
       const accountPrivateKey = algosdk.mnemonicToSecretKey("roof cage sniff park time proof pink thank upon sunset garment question walnut segment oxygen winner exile tilt quality grow seven pupil deny absorb pass");
 
 
       const signedOptInTransaction = await peraWallet.signTransaction([OptInTransaction]);
+
+      setTokenMinting(true)
       const suggestedParams = await algod.getTransactionParams().do();
       const FundTxn = algosdk.makePaymentTxnWithSuggestedParamsFromObject({
         from: accountPrivateKey.addr,
@@ -139,7 +151,7 @@ export default function App() {
       console.log("Transaction : " + transferTransaction.txId);
       await algosdk.waitForConfirmation(algod, transferTransaction.txId, 4);
       console.log("transfer transaction complete")
-
+      setTokenMinting(false)
       setTokenMinted(true);
     }
       catch (error) {
