@@ -84,7 +84,7 @@ const NFT = (gamosa) => {
           ) : (
             <div>
             {tokenMinting ? (
-             <p className="gamosaNFT">Your NFT is Minting , Please wait</p>
+             <p className="gamosaNFT">Your NFT is Minting</p>
           ) : (
             <button className="nft-claim" onClick={handleMintNFT}>Claim This NFT</button>
           )}
