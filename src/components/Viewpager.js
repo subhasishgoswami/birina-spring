@@ -13,10 +13,10 @@ import Weaver from './Weaver/Weaver'
 import GamosaNFT from './GamosaNFT/GamosaNFT'
 import Ending from './Ending/Ending'
 
-function Viewpager() {
+function Viewpager(gamosa) {
   const index = useRef(0)
   const [ref, { width }] = useMeasure()
-  const Pages = [<Landing />, <Gamosa />, <Location />, <Weaver />, <NFT />, <Ending/>]
+  const Pages = [<Landing />, <Gamosa />, <Location />, <Weaver />, <NFT  gamosa= {gamosa}/>, <Ending/>]
   const [props, api] = useSprings(
     Pages.length,
     i => ({
