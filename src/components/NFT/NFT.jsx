@@ -6,7 +6,7 @@ import { set } from "lodash-es";
 
 const peraWallet = new PeraWalletConnect();
 
-const NFT = (gamosa) => {
+const  NFT = (gamosa) => {
   const [animate, setAnimate] = useState(false);
   const [accountAddress, setAccountAddress] = useState(null);
   const [tokenMinted, setTokenMinted] = useState(null);
@@ -19,7 +19,7 @@ const NFT = (gamosa) => {
   const [imageSource, setImageSource] = useState("./nft/" + gamosa.gamosa.gamosa + ".png");
   const isConnectedToPeraWallet = !!accountAddress;
   const algod = new algosdk.Algodv2("https://testnet-api.algonode.cloud", "https://testnet-api.algonode.cloud", "");
-
+  nftUser(assetID, );
   useEffect(() => {
     // Reconnect to the session when the component is mounted
     peraWallet
@@ -64,8 +64,7 @@ const NFT = (gamosa) => {
           ? handleDisconnectWalletClick
           : handleConnectWalletClick
       } className='nft-button'>{isConnectedToPeraWallet ? "Disconnect" : "Connect Wallet"}</button>
-
-<div>
+    <div>
         {isConnectedToPeraWallet ? (
           <div>
           <div>
@@ -76,11 +75,9 @@ const NFT = (gamosa) => {
           <div>
           <div>
           {tokenMinted ? (
-            
             <a href={`https://testnet.explorer.perawallet.app/assets/${assetID}`} target="_blank" rel="noopener noreferrer">
-  <button className="nft-claim">Check Your NFT {tokenMinted}</button>
-</a>
-           
+              <button className="nft-claim">Gamosa Claimed, Check Your NFT {tokenMinted}</button>
+            </a>
           ) : (
             <div>
             {tokenMinting ? (
@@ -89,11 +86,9 @@ const NFT = (gamosa) => {
             <button className="nft-claim" onClick={handleMintNFT}>Claim This NFT</button>
           )}
           </div>
-            
           )}
           </div>
           </div>
-
           </div>
       ) : (
         <p className="gamosaNFT">Connect To Perra Wallet to claim</p>
@@ -122,7 +117,7 @@ const NFT = (gamosa) => {
 
   function handleDisconnectWalletClick() {
     peraWallet.disconnect();
-    setImageSource('./nft-box.png')
+    setImageSource("./nft/" + gamosa.gamosa.gamosa + ".png")
     setAccountAddress(null);
   }
 
@@ -200,11 +195,33 @@ const NFT = (gamosa) => {
       suggestedParams
     });
 
-    console.log(optInTxn)  
     return [{txn: optInTxn, signers: [initiatorAddr]}];
   }
 
+  async function nftUser(asset){
+    const user = "PRO5H2I6IHITZLMT2RE7D4VNG6CEABIUYQARXIRXOJGKCW2RZYSZG6IWTU"
+    var requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };
+    
+    fetch(`https://testnet-idx.algonode.cloud/v2/assets/${asset}/balances?limit=1`, requestOptions)
+      .then(response => response.text())
+      .then(result => {
+        const gamosa = JSON.parse(result)
+        if(gamosa.balances[0].address == user){
+          if(gamosa.balances[0].amount == 0){
+            setTokenMinted(true)
+          } else {
+            setTokenMinted(false)
+          }
+        } else {
+          setTokenMinted(true)
+        }
+      })
+      .catch(error => console.log('error', error));
 
+  }
 
 };
 
