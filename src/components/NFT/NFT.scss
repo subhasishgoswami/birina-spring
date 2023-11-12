@@ -50,8 +50,44 @@ $black: #272727;
   cursor: pointer;
   transition: background-color 0.3s ease; /* Smooth transition for background color */
   margin-top: 20px;
+  position: fixed;
+  top: 90px;
+  right: 20px;
 }
 
 .nft-button:hover {
   background-color: #8e0103; /* Button background color on hover */
+}
+
+.gamosaNFT {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 900;
+  text-align: center;
+  color: $black;
+  display: inline-block;
+  position: relative;
+  font-family: Sans-serif;
+  margin-bottom: 5px;
+}
+
+.nft-box{
+  width: 50%;
+  margin: 10px;
+}
+
+.nft-claim{
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  background-color: $color-main; /* Button background color */
+  color: #ffffff; /* Button text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+  margin-top: 20px;
 }
