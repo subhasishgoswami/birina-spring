@@ -11,8 +11,12 @@ const NFT = (gamosa) => {
   const [accountAddress, setAccountAddress] = useState(null);
   const [tokenMinted, setTokenMinted] = useState(null);
   const [tokenMinting, setTokenMinting] = useState(null);
+  
+  //const [setImageSource, setfinalImage] = useState(null)
+
 
   const [assetID, setAssetID] = useState(gamosa.gamosa.nftAsset);
+  const [imageSource, setImageSource] = useState("./nft/" + gamosa.gamosa.gamosa + ".png");
   const isConnectedToPeraWallet = !!accountAddress;
   const algod = new algosdk.Algodv2("https://testnet-api.algonode.cloud", "https://testnet-api.algonode.cloud", "");
 
@@ -54,7 +58,7 @@ const NFT = (gamosa) => {
     <div className='nft-container'>
     <p className="nft">Claim The Digital</p>
     <p className='nft'>Version Of Your Gamosa</p>
-    <img src= {"./nft/" + gamosa.gamosa.gamosa + ".png"} className="nft-box" />
+    <img src={imageSource} className="nft-box" />
     <button onClick={
         isConnectedToPeraWallet
           ? handleDisconnectWalletClick
@@ -72,14 +76,15 @@ const NFT = (gamosa) => {
           <div>
           <div>
           {tokenMinted ? (
-            <>
-            <img src='./success.png' className='nft-box' />
-            <button className="nft-claim">Check TXN {tokenMinted}</button>  
-            </>
+            
+            <a href={`https://testnet.explorer.perawallet.app/assets/${assetID}`} target="_blank" rel="noopener noreferrer">
+  <button className="nft-claim">Check Your NFT {tokenMinted}</button>
+</a>
+           
           ) : (
             <div>
             {tokenMinting ? (
-            <img className="nft-box" src="./gamosagif.gif"/>
+             <p className="gamosaNFT">Your NFT is Minting , Please wait</p>
           ) : (
             <button className="nft-claim" onClick={handleMintNFT}>Claim This NFT</button>
           )}
@@ -117,7 +122,7 @@ const NFT = (gamosa) => {
 
   function handleDisconnectWalletClick() {
     peraWallet.disconnect();
-
+    setImageSource('./nft-box.png')
     setAccountAddress(null);
   }
 
@@ -135,7 +140,8 @@ const NFT = (gamosa) => {
 
       const signedOptInTransaction = await peraWallet.signTransaction([OptInTransaction]);
 
-      setTokenMinting(true)
+     setTokenMinting(true)
+     setImageSource('./gamosagif.gif')
       const suggestedParams = await algod.getTransactionParams().do();
       const FundTxn = algosdk.makePaymentTxnWithSuggestedParamsFromObject({
         from: accountPrivateKey.addr,
@@ -171,8 +177,10 @@ const NFT = (gamosa) => {
       console.log("Transaction : " + transferTransaction.txId);
       await algosdk.waitForConfirmation(algod, transferTransaction.txId, 4);
       console.log("transfer transaction complete")
+      
       setTokenMinting(false)
       setTokenMinted(true);
+      setImageSource('./success.png')
     }
       catch (error) {
         console.log("Couldn't sign Opt-in txns",error);
@@ -195,6 +203,8 @@ const NFT = (gamosa) => {
     console.log(optInTxn)  
     return [{txn: optInTxn, signers: [initiatorAddr]}];
   }
+
+
 
 };
 
