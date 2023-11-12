@@ -1,3 +1,4 @@
+
 $color-main: #fb0206;
 $black: #272727;
 
@@ -25,46 +26,32 @@ $black: #272727;
 }
 
 .landing-container {
-  font-size: 30px;
+  font-size: 40px;
   font-weight: 700;
   text-align: right;
   color: $black;
   display: inline-block;
   position: relative;
-  margin-top: 20px ;
 }
 
 .landing-birina {
-  font-size: 25px;
-  font-weight: 50;
+  font-size: 40px;
+  font-weight: 700;
   text-align: right;
   color: $black;
   display: inline-block;
   position: relative;
-  margin-top: -30px ;
+  margin-top: -50px ;
   color: $color-main;
 }
 
 .landing-swipe {
   font-size: 20px;
   font-weight: 500;
+  text-align: right;
   color: $black;
-  text-align: justify;
   display: inline-block;
   position: relative;
-  margin-top: -10px;
-  max-width: 600px; /* Adjust the value based on your layout */
-  margin-left: 20px;
-  margin-right: 30px;
-}
-
-/* Media query for smaller screens (adjust the max-width as needed) */
-@media screen and (max-width: 600px) {
-    .landing-swipe {
-        font-size: 16px; /* Adjust the font size for smaller screens */
-        text-align: center; /* Change to left-align for smaller screens */
-        display: block; /* Change display to block for better flow */
-    }
 }
 
 .text-container {
@@ -174,16 +161,4 @@ $black: #272727;
   100% {
     opacity: 1;
   }
-}
-
-.WeaverImage{
-  width: 260px; /* Set the desired width for your logo */
-  height: auto; /* Maintain aspect ratio */
-  display: flex;
-  align-items: center; /* Center vertically */
-  justify-content: flex-start; /* Position at the top */
-  will-change: filter;
-  transition: filter 300ms;
-  border-radius: 10px 10px 10px 10px;
-  margin-top: -200px ; 
 }

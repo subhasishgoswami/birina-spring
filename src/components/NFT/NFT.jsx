@@ -90,7 +90,7 @@ const NFT = () => {
 
           </div>
       ) : (
-        <p className="gamosaNFT">Connect To Perra Wallet</p>
+        <p className="gamosaNFT">Connect To Perra Wallet to claim</p>
       )}
   </div>
      </div>
