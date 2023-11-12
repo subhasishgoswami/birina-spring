@@ -6,13 +6,14 @@ import { set } from "lodash-es";
 
 const peraWallet = new PeraWalletConnect();
 
-const NFT = () => {
+const NFT = (gamosa) => {
   const [animate, setAnimate] = useState(false);
   const [accountAddress, setAccountAddress] = useState(null);
   const [tokenMinted, setTokenMinted] = useState(null);
   const [tokenMinting, setTokenMinting] = useState(null);
-  const isConnectedToPeraWallet = !!accountAddress;
 
+  const [assetID, setAssetID] = useState(gamosa.gamosa.nftAsset);
+  const isConnectedToPeraWallet = !!accountAddress;
   const algod = new algosdk.Algodv2("https://testnet-api.algonode.cloud", "https://testnet-api.algonode.cloud", "");
 
   useEffect(() => {
@@ -53,7 +54,7 @@ const NFT = () => {
     <div className='nft-container'>
     <p className="nft">Claim The Digital</p>
     <p className='nft'>Version Of Your Gamosa</p>
-    <img src="./nft-box.png" className="nft-box" />
+    <img src= {"./nft/" + gamosa.gamosa.gamosa + ".png"} className="nft-box" />
     <button onClick={
         isConnectedToPeraWallet
           ? handleDisconnectWalletClick
@@ -124,11 +125,11 @@ const NFT = () => {
 
     console.log("mint")
     const OptInTransaction = await generateOptIntoAssetTxns({
-      assetID: 432487034,
+      assetID: assetID,
       initiatorAddr: accountAddress
     });
     try {
-      const assetIndex = 432487034
+      const assetIndex = assetID
       const accountPrivateKey = algosdk.mnemonicToSecretKey("roof cage sniff park time proof pink thank upon sunset garment question walnut segment oxygen winner exile tilt quality grow seven pupil deny absorb pass");
 
 
