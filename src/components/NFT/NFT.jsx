@@ -11,11 +11,12 @@ const NFT = (gamosa) => {
   const [accountAddress, setAccountAddress] = useState(null);
   const [tokenMinted, setTokenMinted] = useState(null);
   const [tokenMinting, setTokenMinting] = useState(null);
-  const [imageSource, setImageSource] = useState('./nft-box.png');
+  
   //const [setImageSource, setfinalImage] = useState(null)
 
 
   const [assetID, setAssetID] = useState(gamosa.gamosa.nftAsset);
+  const [imageSource, setImageSource] = useState("./nft/" + gamosa.gamosa.gamosa + ".png");
   const isConnectedToPeraWallet = !!accountAddress;
   const algod = new algosdk.Algodv2("https://testnet-api.algonode.cloud", "https://testnet-api.algonode.cloud", "");
 
@@ -76,7 +77,9 @@ const NFT = (gamosa) => {
           <div>
           {tokenMinted ? (
             
-            <button className="nft-claim">Check TXN {tokenMinted}</button>  
+            <a href={`https://testnet.explorer.perawallet.app/assets/${assetID}`} target="_blank" rel="noopener noreferrer">
+  <button className="nft-claim">Check Your NFT {tokenMinted}</button>
+</a>
            
           ) : (
             <div>
