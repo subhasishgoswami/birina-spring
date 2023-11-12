@@ -20,7 +20,6 @@ export default function App() {
       <div style={{ height: '100%' }}>
         <Routes>
           <Route path="/:gamosa" element={<MyComponent />} />
-          <Route path="/detail" element={<Detail/>}> </Route>
         </Routes>
       </div>
     </Router>
