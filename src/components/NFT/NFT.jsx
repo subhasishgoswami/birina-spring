@@ -209,7 +209,6 @@ const  NFT = (gamosa) => {
       .then(response => response.text())
       .then(result => {
         const gamosa = JSON.parse(result)
-        console.log(gamosa.balances[0])
         if(gamosa.balances[0].address == user){
           if(gamosa.balances[0].amount == 0){
             setTokenMinted(true)
