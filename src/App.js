@@ -50,15 +50,15 @@ function MyComponent() {
 function nft(gamosa){
   switch(gamosa){
     case "101":
-      return 478285079;
+      return 479742142;
     case "102":
-      return 478285177;
+      return 479742220;
     case "103":
-      return 478285263;
+      return 479742261;
     case "104":
-      return 478285380;
+      return 479742277;
     case "105":
-      return 478285431;
+      return 479742330;
     default:
       return null;
   }
