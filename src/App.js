@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { useSprings, animated } from '@react-spring/web'
 import useMeasure from 'react-use-measure'
 import { useDrag } from 'react-use-gesture'
@@ -9,10 +9,8 @@ import Viewpager from './components/Viewpager'
 import Detail from './components/Detail/Detail';
 import { RiMenu3Fill } from 'react-icons/ri'
 import { BrowserRouter as Router, Route,Routes, useParams } from 'react-router-dom';
-
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />
-})
+import { result } from 'lodash-es'
+import axios from 'axios';
 
 export default function App() {
   return (
@@ -26,40 +24,52 @@ export default function App() {
   );
 }
 
+
 function MyComponent() {
+  const [loading, setLoading] = useState(true);
+  const [gamosaParams, setGamosaParams] = useState(null);
   const { gamosa } = useParams();
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`https://script.google.com/macros/s/AKfycbw5C6PBwE35lBWKCyKQALGzLIAk6q-zas9RiRJ3FC9hS80ajwQTrqWQ7Z69tNMLfVbv8Q/exec?gamosa=${gamosa}`);
+        console.log('API response:', response.data);
+        if (response.data.error == "Gamosa not found") {
+          setGamosaParams(null);
+        } else {
+          setGamosaParams(response.data);
+        }
+      } catch (error) {
+        setGamosaParams(null);
+        console.error('Error fetching data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  const nftAsset = nft(gamosa);
-
-  if(nftAsset == null){
-    return(
-      <div>
-        <h1>404</h1>
-      </div>
-    )
-  }
+    fetchData();
+  }, [gamosa]);
 
   return (
     <div style={{ height: '100%' }}>
-      <div className={styles.container}>{status === 'loading' && data ? 'Loading' : <Viewpager gamosa = {gamosa} nftAsset = {nftAsset}/>}</div>
+      <div className={styles.container}>
+        {loading ? (
+          'Loading...'
+        ) : (
+          gamosaParams ? (
+            <Viewpager
+              gamosa={gamosa}
+              nftAsset={gamosaParams.NFT}
+              weaver={gamosaParams.weaver}
+              location={gamosaParams.location}
+              locationLatitudeLongitude={{ latitude: gamosaParams.latitude, longitude: gamosaParams.longitude }}
+            />
+          ) : (
+
+            <div>Gamosa Not Minted</div>
+          )
+        )}
+      </div>
     </div>
-  )
-}
-
-
-function nft(gamosa){
-  switch(gamosa){
-    case "101":
-      return 479742142;
-    case "102":
-      return 479742220;
-    case "103":
-      return 479742261;
-    case "104":
-      return 479742277;
-    case "105":
-      return 479742330;
-    default:
-      return null;
-  }
+  );
 }

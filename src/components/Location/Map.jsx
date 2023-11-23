@@ -8,7 +8,7 @@ import 'leaflet/dist/leaflet.css';
 import gamosaIcon from './gamosa.png';
 
 
-const MapComponent = ({ latitude, longitude }) => {
+const MapComponent = ({ latitude, longitude, location }) => {
   const customIcon = new L.Icon({
     iconUrl: gamosaIcon, // Path to your custom marker image
     iconSize: [40, 40], // Size of the custom icon
@@ -16,14 +16,14 @@ const MapComponent = ({ latitude, longitude }) => {
     popupAnchor: [0, 40], // Point from which the popup should open relative to the iconAnchor
   });
 
-  useEffect(() => {}, [latitude, longitude]);
+  useEffect(() => {}, [latitude, longitude, location]);
 
   return (
     <div className='location'>
     <p className="mapLocation">Your Gamosa Came From</p>
-    <p className="mapLocationNFT">Merapani, Golaghat</p>
+    <p className="mapLocationNFT">{location}</p>
     <MapContainer
-        center={[26.514326750000002, 93.96587135]} // Coordinates for Golaghat, Assam
+        center={[latitude, longitude]} // Coordinates for Golaghat, Assam
         zoom={13}
         style={{ width: '70%', height: '290px', borderRadius: '15px', marginTop: '10px' }}
       >
@@ -31,29 +31,24 @@ const MapComponent = ({ latitude, longitude }) => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
-        <Marker position={[26.514326750000002, 93.96587135]} icon={customIcon}/>
+        <Marker position={[latitude, longitude]} icon={customIcon}/>
       </MapContainer>
   </div>
   )
 };
 
-MapComponent.propTypes = {
-    latitude: PropTypes.string.isRequired, // Define the prop type and mark it as required
-    longitude: PropTypes.string.isRequired, // Define the prop type and mark it as required
-  };
-
-  const AnimatedMapComponent = () => {
+  const AnimatedMapComponent = (gamosaLocation) => {
     const [animate, setAnimate] = useState(false);
   
     useEffect(() => {
       // Trigger animation after component mounts
       setAnimate(true);
     }, []);
-  
+    
     return (
 
       <div>
-        <MapComponent latitude="26.5239" longitude="93.9623" />
+        <MapComponent latitude= {gamosaLocation.location.locationLatitudeLongitude.latitude}  longitude= {gamosaLocation.location.locationLatitudeLongitude.longitude} location= {gamosaLocation.location.location} />
       </div>
     );
   };
