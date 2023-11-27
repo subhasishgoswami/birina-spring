@@ -6,10 +6,12 @@ import Detail from '../Detail/Detail';
 
 
 
-const Weaver = () => {
+const Weaver = (gamosa) => {
   const [animate, setAnimate] = useState(false);
 
   const [showDetail, setShowDetail] = useState(false);
+
+  const [weaverGamosa, setWeaver] = useState(gamosa.gamosa == 1 ? 'Momi Payeng' : gamosa.gamosa == 2 ? 'Malabika Charo Pegu' : 'Urvashi Pegu');
 
   const openDetailModal = () => {
     setShowDetail(true);
@@ -26,15 +28,15 @@ const Weaver = () => {
   return (
     <>
     
-    <div className='weaver-container'>
-    <img src="./momi-payeng-card.png" className="weaver-box" />
-    <p className="weaver-send">Momi Payeng</p>
+    <div className="weaver-container">
+    <img src={`./weaver-gamosa-${gamosa.gamosa}.png`} className="weaver-box" />
+    <p className="weaver-send">{weaverGamosa}</p>
     <p className="weaver">Your Weaver</p>
     <button className='weaver-button' onClick={openDetailModal}>
           Know More About Her
         </button>
 
-        {showDetail && <Detail closeModal={closeDetailModal} />}
+        {showDetail && <Detail closeModal={closeDetailModal} gamosa= {gamosa} />}
     
    
     </div>
