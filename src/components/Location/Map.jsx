@@ -23,8 +23,8 @@ const MapComponent = ({ latitude, longitude, location }) => {
     <p className="mapLocation">Your Gamosa Came From</p>
     <p className="mapLocationNFT">{location}</p>
     <MapContainer
-        center={[latitude, longitude]} // Coordinates for Golaghat, Assam
-        zoom={13}
+        center={[latitude, longitude]}
+        zoom={10}
         style={{ width: '70%', height: '290px', borderRadius: '15px', marginTop: '10px' }}
       >
         <TileLayer
