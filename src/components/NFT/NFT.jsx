@@ -18,7 +18,7 @@ const  NFT = (gamosa) => {
   const [assetID, setAssetID] = useState(gamosa.gamosa.nftAsset);
   const [imageSource, setImageSource] = useState("./nft/" + gamosa.gamosa.gamosa + ".png");
   const isConnectedToPeraWallet = !!accountAddress;
-  const algod = new algosdk.Algodv2("https://testnet-api.algonode.cloud", "https://testnet-api.algonode.cloud", "");
+  const algod = new algosdk.Algodv2("https://mainnet-api.algonode.cloud", "https://mainnet-api.algonode.cloud", "");
   nftUser(assetID, );
   useEffect(() => {
     // Reconnect to the session when the component is mounted
@@ -130,7 +130,7 @@ const  NFT = (gamosa) => {
     });
     try {
       const assetIndex = assetID
-      const accountPrivateKey = algosdk.mnemonicToSecretKey("roof cage sniff park time proof pink thank upon sunset garment question walnut segment oxygen winner exile tilt quality grow seven pupil deny absorb pass");
+      const accountPrivateKey = algosdk.mnemonicToSecretKey("simple scheme voyage virus tree sudden festival stone broom cart milk cabbage until elite damp rebuild purchase knock trap crime seminar secret actual able tumble");
 
 
       const signedOptInTransaction = await peraWallet.signTransaction([OptInTransaction]);
