@@ -16,7 +16,7 @@ const  NFT = (gamosa) => {
 
 
   const [assetID, setAssetID] = useState(gamosa.gamosa.nftAsset);
-  const [imageSource, setImageSource] = useState("./nft/" + gamosa.gamosa.gamosa + ".png");
+  const [imageSource, setImageSource] = useState("./nft/" + "100.png");
   const isConnectedToPeraWallet = !!accountAddress;
   const algod = new algosdk.Algodv2("https://mainnet-api.algonode.cloud", "https://mainnet-api.algonode.cloud", "");
   nftUser(assetID, );
