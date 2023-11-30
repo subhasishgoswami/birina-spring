@@ -75,7 +75,7 @@ const  NFT = (gamosa) => {
           <div>
           <div>
           {tokenMinted ? (
-            <a href={`https://testnet.explorer.perawallet.app/assets/${assetID}`} target="_blank" rel="noopener noreferrer">
+            <a href={`https://explorer.perawallet.app/assets/${assetID}`} target="_blank" rel="noopener noreferrer">
               <button className="nft-claim">Gamosa Claimed, Check Your NFT {tokenMinted}</button>
             </a>
           ) : (
