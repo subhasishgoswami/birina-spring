@@ -117,7 +117,7 @@ const  NFT = (gamosa) => {
 
   function handleDisconnectWalletClick() {
     peraWallet.disconnect();
-    setImageSource("./nft/" + gamosa.gamosa.gamosa + ".png")
+    setImageSource("./nft/" + "100.png")
     setAccountAddress(null);
   }
 
@@ -205,7 +205,7 @@ const  NFT = (gamosa) => {
       redirect: 'follow'
     };
     
-    fetch(`https://testnet-idx.algonode.cloud/v2/assets/${asset}/balances?limit=1`, requestOptions)
+    fetch(`https://mainnet-idx.algonode.cloud/v2/assets/${asset}/balances?limit=1`, requestOptions)
       .then(response => response.text())
       .then(result => {
         const gamosa = JSON.parse(result)
