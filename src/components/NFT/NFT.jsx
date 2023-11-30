@@ -141,7 +141,7 @@ const  NFT = (gamosa) => {
       const FundTxn = algosdk.makePaymentTxnWithSuggestedParamsFromObject({
         from: accountPrivateKey.addr,
         to: accountAddress,
-        amount: 250000,
+        amount: 201000,
         suggestedParams: suggestedParams
       });
 
