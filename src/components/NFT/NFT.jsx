@@ -199,7 +199,7 @@ const  NFT = (gamosa) => {
   }
 
   async function nftUser(asset){
-    const user = "PRO5H2I6IHITZLMT2RE7D4VNG6CEABIUYQARXIRXOJGKCW2RZYSZG6IWTU"
+    const user = "HDEAK5BIN5EBLFKRJRKBLZBWGP5X4LB7ITBOIVLNKF354D66CYPIXRNKZM"
     var requestOptions = {
       method: 'GET',
       redirect: 'follow'
