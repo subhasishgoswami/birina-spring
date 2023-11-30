@@ -198,6 +198,12 @@ const  NFT = (gamosa) => {
     return [{txn: optInTxn, signers: [initiatorAddr]}];
   }
 
+  function nftHandler(){
+    if(gamosa.gamosa) {
+      nftUser(gamosa.gamosa.nftAsset)
+    }
+  }
+
   async function nftUser(asset){
     const user = "HDEAK5BIN5EBLFKRJRKBLZBWGP5X4LB7ITBOIVLNKF354D66CYPIXRNKZM"
     var requestOptions = {
